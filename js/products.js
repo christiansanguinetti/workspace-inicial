@@ -25,6 +25,6 @@ function getJSONData(url) {
         });
 }
  
-for(producto of response.data.products){
+for(let producto of response.data.products){
     console.log(...product);
     }
