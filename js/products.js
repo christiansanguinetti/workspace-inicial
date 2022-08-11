@@ -27,6 +27,6 @@ function getJSONData(url) {
 
 function paraproducto() {
     for (let producto of response.data.products) {
-        console.log(product);
+        console.log(producto);
     }
 }    
