@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     for (let producto of response.data.products) {
-        console.log(product);
+        console.log(producto);
     }
     document.getElementById("autos").addEventListener("click", function () {
         localStorage.setItem("catID", 101);
