@@ -1,3 +1,4 @@
+let validacionCorrecta = true
 function validar() {
     var email = document.getElementById("floatingInput").value;
     var password = document.getElementById("floatingPassword").value;
