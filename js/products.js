@@ -9,6 +9,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     for (let producto of result.data.products) {
         //agregamos un <li>.. </li> por cada producto que recorre el for()
         contenedor_lista.innerHTML +=
-         `<li id='${ producto.id } '>${producto.name}</li>`;
+         `<li id='${ producto.id } '>${producto.name}</li>` ;
     }
 })
