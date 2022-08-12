@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    for (let producto of response.data.products) {
+    for (const producto of response.data.products) {
         console.log(producto);
     }
     document.getElementById("autos").addEventListener("click", function () {
