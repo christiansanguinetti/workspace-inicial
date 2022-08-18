@@ -3,9 +3,9 @@ function validar(){
     var password = document.getElementById("floatingPassword").value;
      
     if (email && password !==0){
-        alert("email y password validos")
+        alert("usuario y password validos")
         return window.location="principal.html"
     }else{
-        alert("email y password invalidos")
+        alert("usuario y password invalidos")
     }
 }
