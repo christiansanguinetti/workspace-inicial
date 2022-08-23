@@ -8,5 +8,8 @@ function validar(){
     }else{
         alert("usuario y password invalidos")
     }
-    localStorage.setItem("usuario", "usuario value");
+}
+ 
+function guardar_usuario(){
+    if (usuario.value) localStorage.setItem("usuario", usuario.value);
 }
