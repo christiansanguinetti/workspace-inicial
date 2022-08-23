@@ -4,8 +4,9 @@ function validar(){
      
     if (usuario && password !==0){
         alert("usuario y password validos")
-        return window.location="principal.html"
+        return window.location="principal.html";
     }else{
         alert("usuario y password invalidos")
     }
+    localStorage.setItem("usuario", "usuario value");
 }
