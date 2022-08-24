@@ -12,11 +12,13 @@ document.getElementById("muebles").addEventListener("click", function () {
     window.location = "products.html"
 });
 });
+
+
 const dato = document.getElementById("correo")
 let agregar_usuario = localStorage.getItem('usuario')
- showData()
-function showData (){
+ pongo_correo()
+function pongo_correo (){
     if (agregar_usuario) {
-      dato.innerHTML =+ 'a' + agregar_usuario + '</a>';
+      dato.innerHTML += '<a>' + agregar_usuario + '</a>';
     }
 }
