@@ -1,5 +1,9 @@
 const Autos_url = "https://japceibal.github.io/emercado-api/cats_products/101.json"
-
+const ORDER_ASC_BY_NAME = "AZ";
+const ORDER_DESC_BY_NAME = "ZA";
+const ORDER_BY_PROD_COUNT = "Cant.";
+let minCost = undefined;
+let maxCost = undefined;
 document.addEventListener('DOMContentLoaded', async function () {
     let contenedor_lista = document.getElementById('lista_productos');
     const result = await getJSONData(Autos_url)
@@ -26,3 +30,28 @@ document.addEventListener('DOMContentLoaded', async function () {
         `
     }
 })
+
+
+
+document.getElementById("rangeFilterCount").addEventListener("click", function(){
+    //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+    //de productos por categoría.
+    minCost = document.getElementById("rangeFiltercantidadmaxima").value;
+    maxCost = document.getElementById("rangeFiltercantidadminima").value;
+
+    if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0){
+        minCost = parseInt(minCost);
+    }
+    else{
+        minCost = undefined;
+    }
+
+    if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+        maxCost = parseInt(maxCost);
+    }
+    else{
+        maxCost = undefined;
+    }
+
+    showCategoriesList();
+});
