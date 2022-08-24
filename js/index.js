@@ -12,3 +12,4 @@ document.getElementById("muebles").addEventListener("click", function () {
     window.location = "products.html"
 });
 });
+

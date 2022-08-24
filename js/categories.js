@@ -5,14 +5,6 @@ let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
-let ejemplo = localStorage.getItem('usuario')
-const ejemplo_dato = document.getElementById("correo")
-showData()
-function showData(){
-if (ejemplo){
-    ejemplo_dato.innerHTML =+ '<a>' + ejemplo + '</a>';
-}
-}
 
 
 function sortCategories(criteria, array){
