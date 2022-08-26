@@ -10,4 +10,3 @@ function validar(){
         alert("usuario y password invalidos")
     }
 }
-let agregar_usuario = localStorage.getItem('usuario')

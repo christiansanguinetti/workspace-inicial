@@ -18,6 +18,6 @@ function pongo_correo() {
     const dato = document.getElementById("correo")
     let agregar_usuario = localStorage.getItem('usuario')
     if (agregar_usuario) {
-        dato.innerHTML += agregar_usuario;
+        dato.innerHTML = agregar_usuario;
     }
 }

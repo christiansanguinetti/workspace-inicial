@@ -1,9 +1,10 @@
-const Autos_url = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+let catID =  localStorage.getItem("catID")
+const productos_url = "https://japceibal.github.io/emercado-api/cats_products/"+catID+".json"
 
 
 document.addEventListener('DOMContentLoaded', async function () {
     let contenedor_lista = document.getElementById('lista_productos');
-    const result = await getJSONData(Autos_url)
+    const result = await getJSONData(productos_url)
 
     contenedor_lista.innerHTML = "";
     for (let producto of result.data.products) {
