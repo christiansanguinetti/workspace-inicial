@@ -51,11 +51,11 @@ function Ordenar() {
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    document.getElementById("sortAsc").addEventListener("click", function () {
+    document.getElementById("Ascendente").addEventListener("click", function () {
         Ordenar(ordenar_ascd);
     });
 
-    document.getElementById("sortDesc").addEventListener("click", function () {
+    document.getElementById("Descendente").addEventListener("click", function () {
         Ordenar(ordenar_desc);
     })
 })
