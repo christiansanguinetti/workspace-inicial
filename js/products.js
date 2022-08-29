@@ -34,26 +34,28 @@ const ordenar_ascd = "+$";
 const ORDER_BY_PROD_COUNT = "Cant.";
 function Ordenar() {
     let result = [];
-    if (criteria === ordenar_desc)
-    {        
-      result = producto.sort((a, b) => {
-        if (a.cost < b.cost) { return -1; }
-        if (a.cost > b.cost) { return 1; }
-        return 0;
-      })
-    } else if (criteria === ordenar_ascd){
-     result = producto.sort((a, b) => {
-        if (a.cost > b.cost) { return -1 }
-        if (a.cost < b.cost) { return 1 }
-        return 0;
+    if (criteria === ordenar_desc) {
+        result = producto.sort((a, b) => {
+            if (a.cost < b.cost) { return -1; }
+            if (a.cost > b.cost) { return 1; }
+            return 0;
+        })
+    } else if (criteria === ordenar_ascd) {
+        result = producto.sort((a, b) => {
+            if (a.cost > b.cost) { return -1 }
+            if (a.cost < b.cost) { return 1 }
+            return 0;
+        })
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function (e) {
+
+    document.getElementById("sortAsc").addEventListener("click", function () {
+        Ordenar(ordenar_ascd);
+    });
+
+    document.getElementById("sortDesc").addEventListener("click", function () {
+        Ordenar(ordenar_desc);
     })
-}
-}
-
-document.getElementById("sortAsc").addEventListener("click", function(){
-    sortAndShowCategories(ORDER_ASC_BY_NAME);
-});
-
-document.getElementById("sortDesc").addEventListener("click", function(){
-    sortAndShowCategories(ORDER_DESC_BY_NAME);
-});
+})
