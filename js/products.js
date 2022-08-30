@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 const ordenar_desc = "-$";
 const ordenar_ascd = "+$";
 const ORDER_BY_PROD_COUNT = "Cant.";
-function Ordenar() {
+function Ordenar(producto) {
     let result = [];
     if (criteria === ordenar_desc) {
         result = producto.sort((a, b) => {
