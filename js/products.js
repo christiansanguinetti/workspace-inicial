@@ -1,6 +1,13 @@
 let catID = localStorage.getItem("catID")
 const productos_url = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json"
-
+const container = document.getElementById("container");
+const boton_asc = document.getElementById("Ascendente");
+const boton_des = document.getElementById("Descendente");
+const por_sold_count = document.getElementById("sortByCount");
+const inputMax = document.getElementById("rangeFilterCountMax")
+const inputMin = document.getElementById("rangeFilterCountMin")
+const filter = document.getElementById("rangeFilterCount")
+const limpiar = document.getElementById("clearRangeFilter");
 
 document.addEventListener('DOMContentLoaded', async function () {
     let contenedor_lista = document.getElementById('lista_productos');
@@ -26,43 +33,72 @@ document.addEventListener('DOMContentLoaded', async function () {
             </div>
         </div>
         `
+
     }
-    document.getElementById("Ascendente").addEventListener("click", function () {
-        Ordenar(ordenar_ascd);
-    });
-
-    document.getElementById("Descendente").addEventListener("click", function () {
-        Ordenar(ordenar_desc);
-    })
 })
+function showData(array) {
+    for (let producto of array) {
 
-const ordenar_desc = "-$";
-const ordenar_ascd = "+$";
-const ORDER_BY_PROD_COUNT = "Cant.";
-function Ordenar(producto) {
-    let result = [];
-    if (criteria === ordenar_desc) {
-        result = producto.sort((a, b) => {
-            if (a.cost < b.cost) { return -1; }
-            if (a.cost > b.cost) { return 1; }
-            return 0;
-        })
-    } else if (criteria === ordenar_ascd) {
-        result = producto.sort((a, b) => {
-            if (a.cost > b.cost) { return -1 }
-            if (a.cost < b.cost) { return 1 }
-            return 0;
-        })
+        contenedor_lista.innerHTML +=
+            `
+    <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
+        <div class="row">
+            <div class="col-3">
+                <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">${producto.name} ${producto.currency} ${producto.cost}</h4>
+                    <small class="text-muted">${producto.soldCount} artículos</small>
+                </div>
+                <p class="mb-1">${producto.description}</p>
+            </div>
+        </div>
+    </div>
+    `
     }
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
+limpiar.addEventListener("click", () => {
+    inputMax.value = ""
+    inputMin.value = ""
+});
 
-    document.getElementById("Ascendente").addEventListener("click", function () {
-        Ordenar(ordenar_ascd);
+
+fetch(productos_url).then(function (response) {
+    return response.json();
+}).then(function (data) {
+    showData(array);
+});
+//ordeno dependiendo la cantidad vendida
+function ordenarSoldCount(array) {
+    array.sort((a, b) => {
+        if (a.soldCount < b.soldCount) return 1;
+        if (a.soldCount > b.soldCount) return -1;
+        return 0;
+    })
+};
+ordenarSoldCount.addEventListener("click", () => {
+    fetch(productos_url).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        let newArray = ordenarSoldCount(data.products);
+        showData(newArray)
     });
+})
 
-    document.getElementById("Descendente").addEventListener("click", function () {
-        Ordenar(ordenar_desc);
+//ordeno array por precio ascendente
+function ordenar_ascendente(array) {
+    array.sort((a, b) => {
+        if (a.cost < b.cost) return -1;
+        if (a.cost > b.cost) return 1;
+        return 0;
+    })
+}
+boton_asc.addEventListener("click", () => {
+    fetch(productos_url).then(function (response) {
+        return response.json();
+    }).then(function (array) {
+        let newArray = ordenar_ascendente(data.products)
     })
 })
