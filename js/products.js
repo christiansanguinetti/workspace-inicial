@@ -76,8 +76,9 @@ por_sold_count.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
-        console.log(data)
+        console.log(data.products)
         let newArray = ordenarSoldCount(data.products);
+        console.log (newArray)
         showData(newArray);
     });
 })
