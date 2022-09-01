@@ -115,7 +115,7 @@ function ordenar_ascendente(array) {
     })
     return array;
 }
-boton_asc.addEventListener("click", () => {
+boton_des.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
@@ -124,6 +124,3 @@ boton_asc.addEventListener("click", () => {
     });
 
 })
-
-//ordeno array por precio descendente
-
