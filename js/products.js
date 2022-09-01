@@ -37,8 +37,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 })
 function showData(array) {
+    let contenedor_lista = document.getElementById('lista_productos');
+    contenedor_lista.innerHTML = ""
     for (let producto of array) {
-
+       
         contenedor_lista.innerHTML +=
             `
     <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
@@ -71,23 +73,23 @@ function ordenarSoldCount(array) {
         if (a.soldCount > b.soldCount) return -1;
         return 0;
     })
+return array
 };
 por_sold_count.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
-        console.log(data.products)
         let newArray = ordenarSoldCount(data.products);
-        console.log (newArray)
         showData(newArray);
     });
+    
 })
 
 //ordeno array por precio ascendente
 function ordenar_ascendente(array) {
     array.sort((a, b) => {
-        if (a.cost < b.cost) return -1;
-        if (a.cost > b.cost) return 1;
+        if (a.cost < b.cost) return 1;
+        if (a.cost > b.cost) return -1;
         return 0;
     })
     return array;
@@ -103,10 +105,10 @@ boton_asc.addEventListener("click", () => {
 })
 
 //ordeno array forma descendente
-function ordenar_ascendente(array) {
+function ordenar_descendente(array) {
     array.sort((a, b) => {
-        if (a.cost > b.cost) return -1;
-        if (a.cost < b.cost) return 1;
+        if (a.cost > b.cost) return 1;
+        if (a.cost < b.cost) return -1;
         return 0;
     })
     return array;
@@ -115,7 +117,7 @@ boton_des.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
-        let newArray = ordenar_ascendente(data.products);
+        let newArray = ordenar_descendente(data.products);
         showData(newArray)
     });
 
