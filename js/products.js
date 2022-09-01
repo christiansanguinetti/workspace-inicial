@@ -78,7 +78,7 @@ function ordenarSoldCount(array) {
         return 0;
     })
 };
-ordenarSoldCount.addEventListener("click", () => {
+por_sold_count.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
