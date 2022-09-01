@@ -68,7 +68,7 @@ limpiar.addEventListener("click", () => {
 fetch(productos_url).then(function (response) {
     return response.json();
 }).then(function (data) {
-    showData(array);
+    showData(newArray);
 });
 //ordeno dependiendo la cantidad vendida
 function ordenarSoldCount(array) {
@@ -83,7 +83,7 @@ ordenarSoldCount.addEventListener("click", () => {
         return response.json();
     }).then(function (data) {
         let newArray = ordenarSoldCount(data.products);
-        showData(newArray)
+        showData(newArray);
     });
 })
 
@@ -94,11 +94,36 @@ function ordenar_ascendente(array) {
         if (a.cost > b.cost) return 1;
         return 0;
     })
+    return array;
 }
 boton_asc.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
-    }).then(function (array) {
-        let newArray = ordenar_ascendente(data.products)
-    })
+    }).then(function (data) {
+        let newArray = ordenar_ascendente(data.products);
+        showData(newArray)
+    });
+
 })
+
+//ordeno array forma descendente
+function ordenar_ascendente(array) {
+    array.sort((a, b) => {
+        if (a.cost > b.cost) return -1;
+        if (a.cost < b.cost) return 1;
+        return 0;
+    })
+    return array;
+}
+boton_asc.addEventListener("click", () => {
+    fetch(productos_url).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        let newArray = ordenar_ascendente(data.products);
+        showData(newArray)
+    });
+
+})
+
+//ordeno array por precio descendente
+
