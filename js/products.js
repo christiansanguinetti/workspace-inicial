@@ -6,7 +6,7 @@ const boton_des = document.getElementById("Descendente");
 const por_sold_count = document.getElementById("sortByCount");
 const inputMax = document.getElementById("rangeFilterCountMax")
 const inputMin = document.getElementById("rangeFilterCountMin")
-const filter = document.getElementById("rangeFilterCount")
+const filtrar = document.getElementById("rangeFilterCount")
 const limpiar = document.getElementById("clearRangeFilter");
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -40,7 +40,7 @@ function showData(array) {
     let contenedor_lista = document.getElementById('lista_productos');
     contenedor_lista.innerHTML = ""
     for (let producto of array) {
-       
+
         contenedor_lista.innerHTML +=
             `
     <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
@@ -73,7 +73,7 @@ function ordenarSoldCount(array) {
         if (a.soldCount > b.soldCount) return -1;
         return 0;
     })
-return array
+    return array
 };
 por_sold_count.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
@@ -82,7 +82,7 @@ por_sold_count.addEventListener("click", () => {
         let newArray = ordenarSoldCount(data.products);
         showData(newArray);
     });
-    
+
 })
 
 //ordeno array por precio ascendente
@@ -122,3 +122,20 @@ boton_des.addEventListener("click", () => {
     });
 
 })
+
+//filtrar con numeros
+function filtrarPrecio(producto) {
+    if (precioMinimo.value === "") {
+        precioMinimo.value = 0;
+    } else if (precioMaximo.value === "") {
+        preciomaximo.value = number.MAX_VALUE;
+    }
+    return producto.cost <= precioMaximo.value && producto.cost >= precioMinimo.value
+}
+
+
+filtrar.addEventListener("click",() =>{
+  showData() =  data.products.filter(filtrarPrecio)
+}
+
+)
