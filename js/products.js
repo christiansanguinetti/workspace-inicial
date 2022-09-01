@@ -64,12 +64,6 @@ limpiar.addEventListener("click", () => {
     inputMin.value = ""
 });
 
-
-fetch(productos_url).then(function (response) {
-    return response.json();
-}).then(function (data) {
-    showData(newArray);
-});
 //ordeno dependiendo la cantidad vendida
 function ordenarSoldCount(array) {
     array.sort((a, b) => {
@@ -82,6 +76,7 @@ por_sold_count.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) {
+        console.log(data)
         let newArray = ordenarSoldCount(data.products);
         showData(newArray);
     });
