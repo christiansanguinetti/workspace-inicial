@@ -122,20 +122,26 @@ boton_des.addEventListener("click", () => {
     });
 
 })
+/*
+filtrar.addEventListener("click", () =>
+array = data.products.filter(filtrarPrecio)
+showData()
 
-//filtrar con numeros
-function filtrarPrecio(producto) {
-    if (precioMinimo.value === "") {
-        precioMinimo.value = 0;
-    } else if (precioMaximo.value === "") {
-        preciomaximo.value = number.MAX_VALUE;
-    }
-    return producto.cost <= precioMaximo.value && producto.cost >= precioMinimo.value
-}
+)
 
+ function filtrarPrecio(producto){
+    if (precioMin === ""){
+    precioMin.value = 0
+ } else if (precioMax.value=== ""){
+    precioMax.value = number.MAX_VALUE
+ }
+ */
+
+
+let lista_filtrada = array.filter((producto) => producto.cost >= inputMin.value )
 
 filtrar.addEventListener("click",() =>{
-  showData() =  data.products.filter(filtrarPrecio)
+  showData(lista_filtrada) 
 }
 
 )

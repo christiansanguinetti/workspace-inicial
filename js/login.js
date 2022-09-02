@@ -1,6 +1,6 @@
 function validar(){
-    var usuario = document.getElementById("floatingInput").value;
-    var password = document.getElementById("floatingPassword").value;
+    let usuario = document.getElementById("floatingInput").value;
+    let password = document.getElementById("floatingPassword").value;
      
     if (usuario && password !==0){
         alert("usuario y password validos")
