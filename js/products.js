@@ -59,6 +59,10 @@ function showData(array) {
     </div>
     `
     }
+    producto.addEventListener("click", () => {
+        localStorage.setItem("id", usuario)
+        window.location="product-info.html"
+    })
 }
 
 limpiar.addEventListener("click", () => {
