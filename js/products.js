@@ -8,6 +8,7 @@ const inputMax = document.getElementById("rangeFilterCountMax")
 const inputMin = document.getElementById("rangeFilterCountMin")
 const filtrar = document.getElementById("rangeFilterCount")
 const limpiar = document.getElementById("clearRangeFilter");
+const lista = document.getElementById("lista_productos")
 
 document.addEventListener('DOMContentLoaded', async function () {
     let contenedor_lista = document.getElementById('lista_productos');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         contenedor_lista.innerHTML +=
             `
-        <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
+        <div (${producto.id})" class="list-group-item list-group-item-action cursor-active">
             <div class="row">
                 <div class="col-3">
                     <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
@@ -43,7 +44,7 @@ function showData(array) {
 
         contenedor_lista.innerHTML +=
             `
-    <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
+    <div (${producto.id})" class="list-group-item list-group-item-action cursor-active">
         <div class="row">
             <div class="col-3">
                 <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
@@ -59,11 +60,8 @@ function showData(array) {
     </div>
     `
     }
-    producto.addEventListener("click", () => {
-        localStorage.setItem("id", usuario)
-        window.location="product-info.html"
-    })
 }
+
 
 limpiar.addEventListener("click", () => {
     inputMax.value = ""
@@ -135,3 +133,9 @@ filtrar.addEventListener("click", () => {
         showData(lista_filtrada)
     });
 })
+
+lista.addEventListener("click", () => {
+        localStorage.setItem("id", lista)
+        window.location = "product-info.html"
+})
+
