@@ -135,7 +135,10 @@ filtrar.addEventListener("click", () => {
 })
 
 lista.addEventListener("click", () => {
-        localStorage.setItem("id", lista)
+    fetch(productos_url).then(function (response) {
+        return response.json();
+    }).then(function (producto) {
+        localStorage.setItem("producto.id", producto.id)
         window.location = "product-info.html"
 })
-
+})
