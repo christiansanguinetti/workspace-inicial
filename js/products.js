@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         contenedor_lista.innerHTML +=
             `
         <div (${producto.id})" class="list-group-item list-group-item-action cursor-active">
-            <div class="row" onClick = "abrir_producto(producto.id)"> 
+            <div class="row" onClick = "abrir_producto(${producto.id})"> 
                 <div class="col-3">
                     <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
                 </div>
