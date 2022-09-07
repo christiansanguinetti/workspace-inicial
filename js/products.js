@@ -137,8 +137,8 @@ filtrar.addEventListener("click", () => {
 lista.addEventListener("click", () => {
     fetch(productos_url).then(function (response) {
         return response.json();
-    }).then(function (producto) {
-        localStorage.setItem("producto.id", producto.id)
+    }).then(function (data) {
+        localStorage.setItem("producto.id", catID)
         window.location = "product-info.html"
 })
 })
