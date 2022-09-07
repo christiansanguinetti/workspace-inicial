@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         contenedor_lista.innerHTML +=
             `
         <div (${producto.id})" class="list-group-item list-group-item-action cursor-active">
-            <div class="row">
+            <div class="row" onClick = "abrir_producto(producto.id)"> 
                 <div class="col-3">
                     <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
                 </div>
@@ -134,11 +134,11 @@ filtrar.addEventListener("click", () => {
     });
 })
 
-lista.addEventListener("click", () => {
+function abrir_producto(id) {
     fetch(productos_url).then(function (response) {
         return response.json();
-    }).then(function (data) {
-        localStorage.setItem("producto.id", catID)
+    }).then(function (data) { 
+        localStorage.setItem("producto id",id)
         window.location = "product-info.html"
-})
-})
+    })
+}
