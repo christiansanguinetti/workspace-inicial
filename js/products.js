@@ -138,7 +138,7 @@ function abrir_producto(id) {
     fetch(productos_url).then(function (response) {
         return response.json();
     }).then(function (data) { 
-        localStorage.setItem("producto id",id)
+        localStorage.setItem("producto_id",id)
         window.location = "product-info.html"
     })
 }
