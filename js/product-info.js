@@ -8,22 +8,21 @@ console.log(datos_producto)
 document.addEventListener('DOMContentLoaded', async function () {
     let informacion = document.getElementById("informacion_producto")
     const data = await getJSONData(PRODUCT_INFO_URL)
-
+    console.log(data)
     informacion.innerHTML = "";
-    
-    {
+    for (let imagen of data.data.images) {
     informacion.innerHTML += `
-      <div (${data.id})" class="list-group-item list-group-item-action cursor-active">
+      <div id ="(${data.data.id})" class="list-group-item list-group-item-action cursor-active">
       <di class="row"> 
           <div class="col-3">
-              <img src="${data.images}" alt="${data.description}" class="img-thumbnail">
+              <img src="${imagen}" alt="${imagen}" class="img-thumbnail">
           </div>
           <div class="col">
               <div class="d-flex w-100 justify-content-between">
-                  <h4 class="mb-1">${data.name} ${data.currency} ${data.cost}</h4>
-                  <small class="text-muted">${data.soldCount} artículos</small>
+                  <h4 class="mb-1">${data.data.name} ${data.data.currency} ${data.data.cost}</h4>
+                  <small class="text-muted">${data.data.soldCount} artículos</small>
               </div>
-              <p class="mb-1">${data.description}</p>
+              <p class="mb-1">${data.data.description}</p>
            </div>
       </div>
       </div>  
