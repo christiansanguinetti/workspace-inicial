@@ -11,21 +11,39 @@ document.addEventListener('DOMContentLoaded', async function () {
     console.log(data)
     informacion.innerHTML = "";
     for (let imagen of data.data.images) {
-    informacion.innerHTML += `
-      <div id ="(${data.data.id})" class="list-group-item list-group-item-action cursor-active">
-      <di class="row"> 
-          <div class="col-3">
-              <img src="${imagen}" alt="${imagen}" class="img-thumbnail">
-          </div>
-          <div class="col">
-              <div class="d-flex w-100 justify-content-between">
-                  <h4 class="mb-1">${data.data.name} ${data.data.currency} ${data.data.cost}</h4>
-                  <small class="text-muted">${data.data.soldCount} artículos</small>
-              </div>
-              <p class="mb-1">${data.data.description}</p>
-           </div>
+        informacion.innerHTML += `
+      <div>
+       <br>
+       <div> 
+         <h2>${data.data.name}</h2>
+       </div>
+       <br>
+      <div>
+        <h4> Precio</h4>
+        <p> ${data.data.cost}</p>
       </div>
-      </div>  
+      <br>
+      <div>
+        <h4> Descripcion</h4>
+        <p> ${data.data.description}</p>
+      </div>
+      <br>
+      <div>
+        <h4>Categoria</h4>
+        <p>${data.data.category}</p>
+      </div>
+      <br>
+      <div>
+        <h4>Cantidad de Vendidos</h4>
+        <p>${data.data.soldCount}</p>
+      </div>
+      <br>
+      <div>
+        <h4>Imagenes ilustrativas</h4>
+        <div class="col-3">
+        <img src="${imagen}" alt="${imagen}" class="img-thumbnail">
+    </div>
+      </div>
       `
     }
 
