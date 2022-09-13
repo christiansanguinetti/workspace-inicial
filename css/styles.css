@@ -1,3 +1,4 @@
+.imagenes,
 .jumbotron,
 .card-body,
 .container,
@@ -188,3 +189,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+div#fotos { 
+  display: flex;
+}
+
