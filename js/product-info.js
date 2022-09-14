@@ -6,16 +6,16 @@ let fotos = document.getElementById("fotos")
 console.log(datos_producto)
 //cargo informacion de productos
 document.addEventListener('DOMContentLoaded', async function () {
-    let informacion = document.getElementById("informacion_producto")
-    let fotos = document.getElementById("fotos")
-    let info_comentarios = document.getElementById(comentarios)
-    const data = await getJSONData(PRODUCT_INFO_URL)
-    const comentario = await getJSONData(PRODUCT_INFO_COMMENTS_URL)
-    console.log(comentario)
-    console.log(fotos)
-    {
-        informacion.innerHTML = "";
-        informacion.innerHTML += `
+  let informacion = document.getElementById("informacion_producto")
+  let fotos = document.getElementById("fotos")
+  let info_comentarios = document.getElementById(comentarios)
+  const data = await getJSONData(PRODUCT_INFO_URL)
+  const comentario = await getJSONData(PRODUCT_INFO_COMMENTS_URL)
+  console.log(comentario)
+  console.log(fotos)
+  {
+    informacion.innerHTML = "";
+    informacion.innerHTML += `
       <div>
       <br>
       <h2>${data.data.name}</h2>
@@ -40,26 +40,39 @@ document.addEventListener('DOMContentLoaded', async function () {
       </div>
       
       `
-        for (let imagen of data.data.images) {
-            fotos.innerHTML += ` 
+    for (let imagen of data.data.images) {
+      fotos.innerHTML += ` 
          <div class="col-3">
          <img src="${imagen}" class="img-thumbnail"> 
          </div>
          `
 
-        }
-        comentarios.innerHTML +=
-            ` <br>
+    }
+    comentarios.innerHTML +=
+      ` <br>
          <h2> Comentarios</h2>`
-        for (let comento of comentario.data) {
-            console.log(comento)
-            comentarios.innerHTML += `
+
+
+    for (let comento of comentario.data) {
+      comentarios.innerHTML += `
         <div id="container">
-        <div> <h5>${comento.user}</h5>   ${comento.dateTime} - ${comento.score} </div>
+        <div> <h5>${comento.user}</h5>   ${comento.dateTime} <div class="stars"> 
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span> </div> 
+        </div>
         <p> ${comento.description}</p>  
        </div>`
-        }
     }
-    
+    const star = document.getElementsByClassName("stars")
+      for (let i = 0; i < star.length; i++) { 
+        for (let f = 0; f<star[i].children.length; f++)
+        if (f < comentario.data[i].score) {
+          star[i].children[f].classList.add("checked")
+        }
+      }
+    }
 })
- 
+

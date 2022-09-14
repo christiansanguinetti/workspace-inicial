@@ -189,6 +189,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
 div#fotos { 
   display: flex;
 }
