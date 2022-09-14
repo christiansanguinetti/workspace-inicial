@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       ` <hr>
          <h2> Comentarios</h2>`
 
-     
+
     for (let comento of comentario.data) {
       comentarios.innerHTML += `
         <div id="container">
@@ -68,10 +68,21 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     const star = document.getElementsByClassName("stars")
     for (let i = 0; i < star.length; i++) {
-      for (let f = 0; f < star[i].children.length; f++) 
+      for (let f = 0; f < star[i].children.length; f++)
         if (f < comentario.data[i].score) {
           star[i].children[f].classList.add("checked")
         }
     }
   }
 })
+const puntuacion = document.getElementById("puntuacion")
+const texto = document.getElementById("textbox")
+
+function limpio() {
+  boton.addEventListener("click", () => {
+    puntuacion.value = ""
+    texto.value = ""
+    alert("comentario echo con exito")
+ })}
+ limpio()
+  
