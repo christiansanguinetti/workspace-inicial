@@ -2,7 +2,7 @@ let datos_producto = localStorage.getItem("producto_id")
 const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/" + datos_producto + ".json"
 const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/" + datos_producto + ".json"
 let fotos = document.getElementById("fotos")
-
+const boton = document.getElementById("submit")
 console.log(datos_producto)
 //cargo informacion de productos
 document.addEventListener('DOMContentLoaded', async function () {
