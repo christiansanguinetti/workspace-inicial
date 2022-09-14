@@ -198,13 +198,13 @@ div#textbox {
   
 }
 textarea{
-  font-size: 1.1rem;
   justify-content: center;
   max-width: 100%; 
   height: 5rem;
   max-height: 15rem;
   padding-top: 0.5rem;
   padding-left: 0.5rem;
+  font-size: medium;
  
 }
 div#puntuo
