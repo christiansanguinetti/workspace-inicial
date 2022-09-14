@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       <div>
       <br>
       <h2>${data.data.name}</h2>
-      <br>
+      <hr>
       <div>
         <h4> Precio</h4>
         <p> ${data.data.cost}</p>
@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     }
     comentarios.innerHTML +=
-      ` <br>
+      ` <hr>
          <h2> Comentarios</h2>`
 
-
+     
     for (let comento of comentario.data) {
       comentarios.innerHTML += `
         <div id="container">
@@ -67,12 +67,11 @@ document.addEventListener('DOMContentLoaded', async function () {
        </div>`
     }
     const star = document.getElementsByClassName("stars")
-      for (let i = 0; i < star.length; i++) { 
-        for (let f = 0; f<star[i].children.length; f++)
+    for (let i = 0; i < star.length; i++) {
+      for (let f = 0; f < star[i].children.length; f++) 
         if (f < comentario.data[i].score) {
           star[i].children[f].classList.add("checked")
         }
-      }
     }
+  }
 })
-
