@@ -1,7 +1,7 @@
 let datos_producto = localStorage.getItem("producto_id")
 const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/" + datos_producto + ".json"
 const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/" + datos_producto + ".json"
-
+const relacionados = document.getElementById("relacionados")
 const boton = document.getElementById("submit")
 console.log(datos_producto)
 //cargo informacion de productos
@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         <span class="fa fa-star"></span> </div> 
         </div>
         <p> ${comento.description}</p>  
-       </div>`
+       </div>
+       `
     }
     const star = document.getElementsByClassName("stars")
     for (let i = 0; i < star.length; i++) {
@@ -74,7 +75,21 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
   }
+   comentarios.innerHTML +=  ` 
+    <div> <h5>Productos Relacionados </h5> </div>`   
+  for ( let relacionado of data.data.relatedProducts){
+   relacionados.innerHTML += `
+   <div  class="list-group-item list-group-item-action cursor-active" id="relacionados">
+    <div class="row" onClick = "producto_relacionado(${relacionado.id})">
+     <div class="col-3">
+     <div>  <img src="${relacionado.image}" class="img-thumbnail"> 
+     ${relacionado.name}</div>
+    </div> 
+   `
+   }
 })
+
+
 const puntuacion = document.getElementById("puntuacion")
 const texto = document.getElementById("textbox")
 
@@ -85,4 +100,12 @@ function limpio() {
     alert("comentario echo con exito")
  })}
  limpio()
+ function producto_relacionado(id){
+  fetch(PRODUCT_INFO_URL).then(function (response) {
+    return response.json();
+}).then(function (data) { 
+    localStorage.setItem("producto_id",id)
+    window.location = "product-info.html"
+})
+}
   
