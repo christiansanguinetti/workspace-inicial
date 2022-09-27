@@ -11,9 +11,10 @@ const limpiar = document.getElementById("clearRangeFilter");
 const lista = document.getElementById("lista_productos")
 
 document.addEventListener('DOMContentLoaded', async function () {
+    pongo_correo()
     let contenedor_lista = document.getElementById('lista_productos');
     const result = await getJSONData(productos_url)
-
+    
     contenedor_lista.innerHTML = "";
     for (let producto of result.data.products) {
 
@@ -105,6 +106,13 @@ boton_asc.addEventListener("click", () => {
     });
 
 })
+function pongo_correo() {
+    const dato = document.getElementById("correo")
+    let agregar_usuario = localStorage.getItem('usuario')
+    if (agregar_usuario) {
+        dato.innerHTML = agregar_usuario;
+    }
+}
 
 //ordeno array forma descendente
 function ordenar_descendente(array) {

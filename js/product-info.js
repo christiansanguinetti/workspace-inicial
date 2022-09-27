@@ -6,6 +6,7 @@ const boton = document.getElementById("submit")
 console.log(datos_producto)
 //cargo informacion de productos
 document.addEventListener('DOMContentLoaded', async function () {
+  pongo_correo()
   let informacion = document.getElementById("informacion_producto")
   let fotos = document.getElementById("fotos")
   let info_comentarios = document.getElementById(comentarios)
@@ -108,4 +109,10 @@ function limpio() {
     window.location = "product-info.html"
 })
 }
-  
+function pongo_correo() {
+  const dato = document.getElementById("correo")
+  let agregar_usuario = localStorage.getItem('usuario')
+  if (agregar_usuario) {
+      dato.innerHTML = agregar_usuario;
+  }
+}

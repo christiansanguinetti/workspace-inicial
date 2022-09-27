@@ -1,7 +1,7 @@
-function validar(){
-    let usuario = document.getElementById("floatingInput").value;
-    let password = document.getElementById("floatingPassword").value;
-     
+
+function validar(){    
+    const usuario = document.getElementById("floatingInput").value;
+const password = document.getElementById("floatingPassword").value; 
     if (usuario && password !==0){
         alert("usuario y password validos")
         localStorage.setItem("usuario", usuario)
