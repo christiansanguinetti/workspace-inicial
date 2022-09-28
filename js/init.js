@@ -48,23 +48,3 @@ function pongo_correo() {
       dato.innerHTML = agregar_usuario;
   }
 }
- 
-function menu(){
-  if(correo){
-  correo.innerHTML = ` 
-  <div class="btn-group">
-  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-  ${correo}
-</a>
-  <ul class="dropdown-menu">
-  <li><span class="dropdown-item-text">Dropdown item text</span></li>
-  <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
-  <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-  <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
-</ul>
-  `
-  }
-    
-  
-}
-menu()
