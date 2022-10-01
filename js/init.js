@@ -41,10 +41,10 @@ let getJSONData = function(url){
         return result;
     });
 }
-function pongo_correo() {
+/*qfunction pongo_correo() {
   const dato = document.getElementById("correo")
   let agregar_usuario = localStorage.getItem('usuario')
   if (agregar_usuario) {
       dato.innerHTML = agregar_usuario;
   }
-}
+ */
