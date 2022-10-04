@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const comentario = await getJSONData(PRODUCT_INFO_COMMENTS_URL)
   console.log(comentario)
   console.log(fotos)
+  console.log(data);
   {
     informacion.innerHTML = "";
     informacion.innerHTML += `
