@@ -32,7 +32,6 @@ menu()
 const tabla = document.getElementById("tabla")
 document.addEventListener('DOMContentLoaded', async function () {
   let dato = await getJSONData(info_carrito)
-  console.log(dato);
   tabla.innerHTML = ""
   tabla.innerHTML += `
   <thead>
@@ -45,17 +44,19 @@ document.addEventListener('DOMContentLoaded', async function () {
   </tr>
 </thead>`
   for (let arr of dato.data.articles) {
-    console.log(arr);
     tabla.innerHTML += `
  <tbody>
   <tr>
     <th scope="row"><img src="${arr.image}" class="img-thumbnail"> </th>
     <td>${arr.name}</td>
     <td>${arr.unitCost}</td>
-    <td><input type="number"></td>
+    <td><input type="number" id="input"></td>
     <td>${arr.currency}${arr.unitCost}
   </tr>
   `}
+  for (let costo of dato.data.articles) {
+    if (input)
+    input * costo
 
+   }
 })
-
