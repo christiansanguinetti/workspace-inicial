@@ -56,7 +56,18 @@ document.addEventListener('DOMContentLoaded', async function () {
   `}
   for (let costo of dato.data.articles) {
     if (input)
-    input * costo
+      input * costo
 
-   }
+  }
+})
+
+function carrito(input) {
+  if (input){
+    (input *costo)
+  }
+
+}
+
+addEventListener("input", () => {
+carrito()
 })
