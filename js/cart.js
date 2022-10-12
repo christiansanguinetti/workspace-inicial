@@ -49,25 +49,15 @@ document.addEventListener('DOMContentLoaded', async function () {
   <tr>
     <th scope="row"><img src="${arr.image}" class="img-thumbnail"> </th>
     <td>${arr.name}</td>
-    <td>${arr.unitCost}</td>
-    <td><input type="number" id="input"></td>
-    <td>${arr.currency}${arr.unitCost}
+    <td>${arr.currency} ${arr.unitCost}</td>
+    <td>
+    <input oninput="calcular_costo(${arr.unitCost}, this.value)" type="number" value="${arr.count}" min="1" max="5" id="input"></td>
+    <td>${arr.currency}<span id="subtotal">${arr.unitCost} </span> </td>
   </tr>
   `}
-  for (let costo of dato.data.articles) {
-    if (input)
-      input * costo
-
-  }
 })
 
-function carrito(input) {
-  if (input){
-    (input *costo)
-  }
-
+function calcular_costo(parametro1, parametro2){
+  let subtotal = document.getElementById("subtotal");
+  subtotal.innerHTML = parametro1 * parametro2
 }
-
-addEventListener("input", () => {
-carrito()
-})
