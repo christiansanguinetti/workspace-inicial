@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     tabla.innerHTML += `
  <tbody>
   <tr>
-    <th scope="row"><img src="${arr.image}" class="img-thumbnail"> </th>
+    <th scope="row"><img style="width: 100px;" src="${arr.image}" class="img-thumbnail"> </th>
     <td>${arr.name}</td>
     <td>${arr.currency} ${arr.unitCost}</td>
     <td>
