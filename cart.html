@@ -38,54 +38,119 @@
   <main>
     <div class="container">
       <br>
-     <div id="carrito_titulo"> <h2>Carrito de compras</h2></div>
-     <hr>
-      <div> <h4>Articulos a comprar</h4></div>
-      <div class="container"> <table id="tabla" class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Costo</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-      
-      </table></div>
+      <div id="carrito_titulo">
+        <h2>Carrito de compras</h2>
+      </div>
+      <hr>
+      <div>
+        <h4>Articulos a comprar</h4>
+      </div>
+      <div class="container">
+        <table id="tabla" class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+        </table>
+      </div>
     </div>
-    <div class="container"><h2>Tipo de Envio</h2>
-      <select class="form-select" aria-label="Default select example">
+    <div class="container">
+      <h2>Tipo de Envio</h2>
+      <select class="form-select" aria-label="Default select example" id="selector">
         <option selected>Seleccione tipo de Envio</option>
-        <option value="1">Premium: 2 a 5 días (15%)</option>
-        <option value="2">Express: 5 a 8 días (7%)</option>
-        <option value="3">Standard: 12 a 15 días (5%)</option>
+        <option value="1" id="opcion1">Premium: 2 a 5 días (15%)</option>
+        <option value="2" id="opcion2">Express: 5 a 8 días (7%)</option>
+        <option value="3" id="opcion3">Standard: 12 a 15 días (5%)</option>
       </select>
       <br>
-    </div> 
+    </div>
     <div class="container">
-     <div> <label class="container" type="text">Calle</label>
-      <input class="container" type="text" aria-label=".form-control-lg example">
-     </div>
+      <form>
+      <div> <label class="container" type="text" requiered>Calle</label>
+        <input class="container" type="text" aria-label=".form-control-lg example" id="calle" required>
+      </div>
       <br>
       <div>
-      <label class="container" type="text">Numero</label>
-      <input class="container" type="text" aria-label="default input example">
+        <label class="container" type="number" requiered>Numero</label>
+        <input class="container" type="number" aria-label="default input example" id="numero">
       </div>
       <br>
       <label class="container" type="text">Esquina</label>
-      <input class="container" type="text" aria-label=".form-control-sm example">
-    
-    
+      <input class="container" type="text" aria-label=".form-control-sm example" id="esquina">
+      </form>
+      </div>
+    <div class="container">
+      <h2>Costos</h2>
+      <br>
+      <div class="container" id="costos"></div>
     </div>
-     
+    <div class="container" id="formadepago">
+      <h2> Forma de Pago</h2>
+
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Agregar Metodo de pago
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Metodo de Pago</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="chequear()" >
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Tarjeta De Credito
+                  </label>
+                  <br>
+                  <div>
+                    <label class="container" type="number" requiered>Numero de tarjeta</label>
+                    <input class="container" type="number" aria-label="default input example" requiered id="numero_tarjeta">
+                  </div>
+                  <div>
+                    <label class="container" type="number" requiered>codigo de seguridad </label>
+                    <input class="container" type="number" aria-label="default input example" required id="codigo_seguridad">
+                  </div>
+                  <div>
+                    <label class="container" type="text" requiered>Vencimiento de tarjeta </label>
+                    <input class="container" type="text" aria-label="default input example" requiered id="vencimiento_tarjeta">
+                  </div>
+                </div>
+                <br>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"   >
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Transferencia Bancaria
+                  </label>
+                  <label class="container" type="number" requiered id="numero_cuenta">Numero de cuenta </label>
+                  <input class="container" type="number" aria-label="default input example" >
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">
