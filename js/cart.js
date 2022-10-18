@@ -33,6 +33,7 @@ const tabla = document.getElementById("tabla")
 const costos = document.getElementById("costos")
 document.addEventListener('DOMContentLoaded', async function () {
   let dato = await getJSONData(info_carrito)
+  
   tabla.innerHTML = ""
   tabla.innerHTML += `
   <thead>
@@ -64,17 +65,40 @@ document.addEventListener('DOMContentLoaded', async function () {
     <span class="badge bg-primary rounded-pill" id="costoss">${arr.unitCost}</span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    Costo del envio 
-    <span class="badge bg-primary rounded-pill id="envios" onmousemove="calcular_envio(${arr.unitCost})" in>${arr.currency}</span>
+    Costo del envio (U$D)
+    <span class="badge bg-primary rounded-pill" id="envios"></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Total
-    <span class="badge bg-primary rounded-pill">1</span>
+    <span class="badge bg-primary rounded-pill" id="total"></span>
   </li>
 </ul>
    `
   }
+  const envio = document.getElementById("envios")
+  
+  function calcular_envio() {
+    let subtotal = Number(document.getElementById("subtotal").textContent)
+    let indice = opciones.selectedIndex
+    if (indice == 1)
+      envio.innerHTML = subtotal * 0.15
+    else if (indice == 2)
+      envio.innerHTML = subtotal * 0.07
+    else if (indice == 3)
+      envio.innerHTML = subtotal * 0.05
+  }
 
+
+  opciones.addEventListener("click", () => {
+    calcular_envio();
+   sumar_total()
+  })
+
+  function sumar_total (){
+    let subtotal = Number(document.getElementById("subtotal").textContent)
+    const total = document.getElementById("total")
+    total.innerHTML = subtotal + Number(envio.textContent)
+  }
 
 })
 
@@ -84,35 +108,27 @@ function calcular_costo(parametro1, parametro2) {
   subtotal.innerHTML = parametro1 * parametro2
   costoss.innerHTML = parametro1 * parametro2
 }
-selector1 = document.getElementById("opcion1")
-selector2 = document.getElementById("opcion2")
-selector3 = document.getElementById("opcion3")
-function calcular_envio(para) {
-  let envio = document.getElementById("envios")
-  if (selector1)
-    envio.innerHTML = para / 0.15
-  else if (selector2)
-    envio.innerHTML = para / 0.07
-  else if (selector3)
-    envio.innerHTML = para / 0.05
-}
 
-const tarjeta = document.getElementById( "flexRadioDefault1")
-const transferencia = document.getElementById( "flexRadioDefault2")
-const numero_cuenta = document.getElementById( "numero_cuenta")
-const numero_tarjeta = document.getElementById( "numero_tarjeta")
-const codigo_seguridad = document.getElementById( "codigo_seguridad")
-const vencimiento_tarjeta = document.getElementById( "vencimiento_tarjeta")
+const opciones = document.getElementById("selector")
 
+
+
+const tarjeta = document.getElementById("flexRadioDefault1")
+const transferencia = document.getElementById("flexRadioDefault2")
+const numero_cuenta = document.getElementById("numero_cuenta")
+const numero_tarjeta = document.getElementById("numero_tarjeta")
+const codigo_seguridad = document.getElementById("codigo_seguridad")
+const vencimiento_tarjeta = document.getElementById("vencimiento_tarjeta")
+const boton_guardar = document.getElementById("boton_guardar")
 
 function chequear() {
   if (tarjeta.checked) {
-    transferencia.disabled=true
+    transferencia.disabled = true
     numero_cuenta.disabled = true
-  } else if (transferencia.checked){
-    tarjeta.disabled=true
-   numero_tarjeta.disabled= true
-   codigo_seguridad.disabled = true
-   vencimiento_tarjeta.disabled = true
-  
-} }
+  } else if (transferencia.checked) {
+    tarjeta.disabled = true
+    numero_tarjeta.disabled = true
+    codigo_seguridad.disabled = true
+    vencimiento_tarjeta.disabled = true
+  }
+}
