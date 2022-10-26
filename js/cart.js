@@ -33,7 +33,7 @@ const tabla = document.getElementById("tabla")
 const costos = document.getElementById("costos")
 document.addEventListener('DOMContentLoaded', async function () {
   let dato = await getJSONData(info_carrito)
-  
+
   tabla.innerHTML = ""
   tabla.innerHTML += `
   <thead>
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async function () {
    `
   }
   const envio = document.getElementById("envios")
-  
+
   function calcular_envio() {
     let subtotal = Number(document.getElementById("subtotal").textContent)
     let indice = opciones.selectedIndex
@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   opciones.addEventListener("click", () => {
     calcular_envio();
-   sumar_total()
+    sumar_total()
   })
 
-  function sumar_total (){
+  function sumar_total() {
     let subtotal = Number(document.getElementById("subtotal").textContent)
     const total = document.getElementById("total")
     total.innerHTML = subtotal + Number(envio.textContent)
@@ -132,3 +132,41 @@ function chequear() {
     vencimiento_tarjeta.disabled = true
   }
 }
+const calle = document.getElementById("calle")
+const numero = document.getElementById("numero")
+const esquina = document.getElementById("esquina")
+const boton_comprar = document.getElementById("boton_comprar")
+function validad (){
+  indice = opciones.selectedIndex;
+  if( indice == null || indice == 0 ) {
+    return false;
+  }
+boton_comprar.addEventListener ("click", () => {
+validar()
+alert ("compra realizada con exito")
+})}
+
+
+
+(function () {
+  'use strict'
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  let forms = document.querySelectorAll('.needs-validation')
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+       
+        if (!form.checkValidity()) {
+         {
+          event.preventDefault()
+          event.stopPropagation()
+          }
+          
+        } 
+
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()

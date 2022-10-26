@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -71,28 +72,29 @@
       <h2>Tipo de Envio</h2>
       <select class="form-select" aria-label="Default select example" id="selector">
         <option selected id="opcion0">Seleccione tipo de Envio</option>
-        <option value="1" name="premium" id="opcion1">Premium: 2 a 5 días (15%)</option>
-        <option value="2"  name="express"id="opcion2">Express: 5 a 8 días (7%)</option>
+        <option selected value="1" name="premium" id="opcion1">Premium: 2 a 5 días (15%)</option>
+        <option value="2" name="express" id="opcion2">Express: 5 a 8 días (7%)</option>
         <option value="3" name="standard" id="opcion3">Standard: 12 a 15 días (5%)</option>
       </select>
       <br>
     </div>
 
     <div class="container">
-      <form>
-      <div> <label class="container" type="text" requiered>Calle</label>
-        <input class="container" type="text" aria-label=".form-control-lg example" id="calle" required>
-      </div>
-      <br>
-      <div>
-        <label class="container" type="number" requiered>Numero</label>
-        <input class="container" type="number" aria-label="default input example" id="numero" required>
-      </div>
-      <br>
-      <label class="container" type="text">Esquina</label>
-      <input class="container" type="text" aria-label=".form-control-sm example" id="esquina" required>
-      </form>
-      </div>
+      <form class="container needs-validation" novalidate>
+        <div> <label class="container" for="validationDefault01" type="text" requiered>Calle</label>
+          <input class="container form-control" type="text" aria-label=".form-control-lg example" value="" id="calle"
+            required>
+        </div>
+        <br>
+        <div>
+          <label class="container" type="number" requiered>Numero</label>
+          <input class="container form-control" type="number" aria-label="default input example" id="numero" required>
+        </div>
+        <br>
+        <label class="container" type="text">Esquina</label>
+        <input class="container form-control" type="text" aria-label=".form-control-sm example" id="esquina" required>
+
+    </div>
     <div class="container">
       <h2>Costos</h2>
       <br>
@@ -111,47 +113,55 @@
               <h1 class="modal-title fs-5" id="exampleModalLabel">Metodo de Pago</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
-              <div class="modal-body">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="chequear()" >
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Tarjeta De Credito
-                  </label>
-                  <br>
-                  <div>
-                    <label class="container" type="number" requiered>Numero de tarjeta</label>
-                    <input class="container" type="number" aria-label="default input example" requiered id="numero_tarjeta">
-                  </div>
-                  <div>
-                    <label class="container" type="number" requiered>codigo de seguridad </label>
-                    <input class="container" type="number" aria-label="default input example" required id="codigo_seguridad">
-                  </div>
-                  <div>
-                    <label class="container" type="text" requiered>Vencimiento de tarjeta </label>
-                    <input class="container" type="text" aria-label="default input example" requiered id="vencimiento_tarjeta">
-                  </div>
-                </div>
-                <br>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="chequear()"  >
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Transferencia Bancaria
-                  </label>
-                  <label class="container" type="number" requiered >Numero de cuenta </label>
-                  <input class="container" type="number" aria-label="default input example"id="numero_cuenta" >
 
+            <div class="modal-body">
+              <div class="form-control">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                  onclick="chequear()">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Tarjeta De Credito
+                </label>
+                <br>
+                <div>
+                  <label class="container" type="number" requiered>Numero de tarjeta</label>
+                  <input class="container" type="number" aria-label="default input example" requiered
+                    id="numero_tarjeta">
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="boton_guardar">Save changes</button>
+                <div>
+                  <label class="container" type="number" requiered>codigo de seguridad </label>
+                  <input class="container" type="number" aria-label="default input example" required
+                    id="codigo_seguridad">
+                </div>
+                <div>
+                  <label class="container" type="text" requiered>Vencimiento de tarjeta </label>
+                  <input class="container" type="text" aria-label="default input example" requiered
+                    id="vencimiento_tarjeta">
                 </div>
               </div>
-            </form>
-          </div>
+              <br>
+              <div class="form-control">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                  onclick="chequear()">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Transferencia Bancaria
+                </label>
+                <label class="container" type="number" requiered>Numero de cuenta </label>
+                <input class="container" type="number" aria-label="default input example" id="numero_cuenta">
 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="boton_guardar">Save changes</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+    
+      </div> 
+      <hr>
+      <button class="btn btn-primary " type="submit" id="boton_comprar" >Comprar</button>
+    </form>
+      
   </main>
   <footer class="text-muted">
     <div class="container">
