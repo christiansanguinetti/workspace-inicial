@@ -1,6 +1,18 @@
 const dato = document.getElementById("correo")
 const agregar_usuario = localStorage.getItem('usuario')
 const info_carrito = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
+const opciones = document.getElementById("selector")
+const tarjeta = document.getElementById("flexRadioDefault1")
+const transferencia = document.getElementById("flexRadioDefault2")
+const numero_cuenta = document.getElementById("numero_cuenta")
+const numero_tarjeta = document.getElementById("numero_tarjeta")
+const codigo_seguridad = document.getElementById("codigo_seguridad")
+const vencimiento_tarjeta = document.getElementById("vencimiento_tarjeta")
+const boton_guardar = document.getElementById("boton_guardar")
+const calle = document.getElementById("calle")
+const numero = document.getElementById("numero")
+const esquina = document.getElementById("esquina")
+const boton_comprar = document.getElementById("boton_comprar")
 
 
 function pongo_correo() {
@@ -109,21 +121,7 @@ function calcular_costo(parametro1, parametro2) {
   costoss.innerHTML = parametro1 * parametro2
 }
 
-const opciones = document.getElementById("selector")
 
-
-
-const tarjeta = document.getElementById("flexRadioDefault1")
-const transferencia = document.getElementById("flexRadioDefault2")
-const numero_cuenta = document.getElementById("numero_cuenta")
-const numero_tarjeta = document.getElementById("numero_tarjeta")
-const codigo_seguridad = document.getElementById("codigo_seguridad")
-const vencimiento_tarjeta = document.getElementById("vencimiento_tarjeta")
-const boton_guardar = document.getElementById("boton_guardar")
-const calle = document.getElementById("calle")
-const numero = document.getElementById("numero")
-const esquina = document.getElementById("esquina")
-const boton_comprar = document.getElementById("boton_comprar")
 //funcion que chequea metodo de pago 
 function chequear() {
   if (tarjeta.checked) {
