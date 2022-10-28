@@ -120,7 +120,11 @@ const numero_tarjeta = document.getElementById("numero_tarjeta")
 const codigo_seguridad = document.getElementById("codigo_seguridad")
 const vencimiento_tarjeta = document.getElementById("vencimiento_tarjeta")
 const boton_guardar = document.getElementById("boton_guardar")
-
+const calle = document.getElementById("calle")
+const numero = document.getElementById("numero")
+const esquina = document.getElementById("esquina")
+const boton_comprar = document.getElementById("boton_comprar")
+//funcion que chequea metodo de pago 
 function chequear() {
   if (tarjeta.checked) {
     transferencia.disabled = true
@@ -132,22 +136,22 @@ function chequear() {
     vencimiento_tarjeta.disabled = true
   }
 }
-const calle = document.getElementById("calle")
-const numero = document.getElementById("numero")
-const esquina = document.getElementById("esquina")
-const boton_comprar = document.getElementById("boton_comprar")
+
+
+//funcion para que funcione el metodo de pago y si no chequeas no haga nada
 function validad (){
   indice = opciones.selectedIndex;
   if( indice == null || indice == 0 ) {
     return false;
   }
+
 boton_comprar.addEventListener ("click", () => {
-validar()
-alert ("compra realizada con exito")
-})}
+validad()
+alert ("compra realizada")
+})} 
 
 
-
+//funcion de boostrap para que funcione las clases
 (function () {
   'use strict'
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -156,13 +160,11 @@ alert ("compra realizada con exito")
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {
-       
         if (!form.checkValidity()) {
          {
           event.preventDefault()
           event.stopPropagation()
           }
-          
         } 
 
 
