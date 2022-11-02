@@ -5,7 +5,6 @@ function pongo_correo() {
         dato.innerHTML = agregar_usuario;
     }
 }
-
 function menu() {
     const poner_correo = document.getElementById("aca_correo")
     //const agregar = localStorage.getItem('usuario')
@@ -22,7 +21,25 @@ function menu() {
   </ul>
     `
     }
-
-
 }
-menu()
+
+//funcion de boostrap para que funcione las clases
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  let forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
