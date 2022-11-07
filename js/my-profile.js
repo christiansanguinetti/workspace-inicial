@@ -1,48 +1,37 @@
 const dato = document.getElementById("email")
 function pongo_correo() {
       dato.value=localStorage.getItem("usuario");
+      nombre.value=localStorage.getItem("nombre")
+      segundo_nombre.value=localStorage.getItem("segundo_nombre")
+      apellido.value=localStorage.getItem("apellido")
+      segundo_apellido.value=localStorage.getItem("segundo_apellido")
+      telefono.value=localStorage.getItem("telefono")
     }
 document.addEventListener('DOMContentLoaded', () => {
   pongo_correo();
-  console.log("entro")
 })
 
 const nombre = document.getElementById("nombre")
+const segundo_nombre = document.getElementById("segundo_nombre")
 const apellido = document.getElementById("apellido")
+const segundo_apellido = document.getElementById("segundo_apellido")
+const telefono = document.getElementById("telefono")
+
 
 function llenar_nombre (){
-  if(nombre != 0 ){
-  nombre.classList.add("is-valid");
-  nombre.classList.remove("is-invalid");
   localStorage.setItem("nombre",nombre.value)
-  return false;
-} else {
-  nombre.classList.add("is-invalid");
-  nombre.classList.remove("is-valid");
-  return true;
-}}
+  localStorage.setItem("segundo_nombre",segundo_nombre.value)
+}
+  
+
 function llenar_apellido (){
-  if(apellido != 0 ){
-  apellido.classList.add("is-valid");
-  apellido.classList.remove("is-invalid");
   localStorage.setItem("apellido",apellido.value)
-  return false;
-} else {
-  apellido.classList.add("is-invalid");
-  apellido.classList.remove("is-valid");
-  return true;
-}} 
+  localStorage.setItem("segundo_apellido",segundo_apellido.value)
+}
 function llenar_email (){
-  if(nombre != 0 ){
-  dato.classList.add("is-valid");
-  dato.classList.remove("is-invalid");
   localStorage.setItem("email",dato.value)
-  return false;
-} else {
-  dato.classList.add("is-invalid");
-  dato.classList.remove("is-valid");
-  return true;
-}}
+  localStorage.setItem("telefono",telefono.value)
+} 
 
 const boton = document.getElementById("boton_guardar")
 
@@ -50,7 +39,6 @@ boton.addEventListener("click", () => {
   llenar_nombre();
   llenar_apellido();
   llenar_email();
-  console.log(llenar_nombre());
 })
 
 
