@@ -1,45 +1,60 @@
-const dato = document.getElementById("correo")
-const agregar_usuario = localStorage.getItem('usuario')
+const dato = document.getElementById("email")
 function pongo_correo() {
-    if (agregar_usuario) {
-        dato.innerHTML = agregar_usuario;
+      dato.value=localStorage.getItem("usuario");
     }
-}
-function menu() {
-    const poner_correo = document.getElementById("aca_correo")
-    //const agregar = localStorage.getItem('usuario')
-    if (agregar_usuario) {
-        poner_correo.innerHTML = ` 
-    <div class="btn-group">
-    <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    ${agregar_usuario}
-  </a>
-  <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
-    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
-  </ul>
-    `
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  pongo_correo();
+  console.log("entro")
+})
 
-//funcion de boostrap para que funcione las clases
-(function () {
-  'use strict'
+const nombre = document.getElementById("nombre")
+const apellido = document.getElementById("apellido")
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  let forms = document.querySelectorAll('.needs-validation')
+function llenar_nombre (){
+  if(nombre != 0 ){
+  nombre.classList.add("is-valid");
+  nombre.classList.remove("is-invalid");
+  localStorage.setItem("nombre",nombre.value)
+  return false;
+} else {
+  nombre.classList.add("is-invalid");
+  nombre.classList.remove("is-valid");
+  return true;
+}}
+function llenar_apellido (){
+  if(apellido != 0 ){
+  apellido.classList.add("is-valid");
+  apellido.classList.remove("is-invalid");
+  localStorage.setItem("apellido",apellido.value)
+  return false;
+} else {
+  apellido.classList.add("is-invalid");
+  apellido.classList.remove("is-valid");
+  return true;
+}} 
+function llenar_email (){
+  if(nombre != 0 ){
+  dato.classList.add("is-valid");
+  dato.classList.remove("is-invalid");
+  localStorage.setItem("email",dato.value)
+  return false;
+} else {
+  dato.classList.add("is-invalid");
+  dato.classList.remove("is-valid");
+  return true;
+}}
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+const boton = document.getElementById("boton_guardar")
 
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
+boton.addEventListener("click", () => {
+  llenar_nombre();
+  llenar_apellido();
+  llenar_email();
+  console.log(llenar_nombre());
+})
+
+
+
+
+
+
